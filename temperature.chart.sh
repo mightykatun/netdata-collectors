@@ -4,6 +4,8 @@
 
 # temperature
 # real-time temperature monitoring
+# (C) 2024 Your Name <your.email@example.com>
+#
 
 # if this chart is called temperature.chart.sh, then all functions and global variables
 # must start with temperature_
@@ -14,7 +16,7 @@ temperature_update_every=5
 
 # the priority is used to sort the charts on the dashboard
 # 1 = the first chart
-temperature_priority=69800
+temperature_priority=70000
 
 # global variables to store our collected data
 # remember: they need to start with the module name temperature_
@@ -58,9 +60,8 @@ temperature_check() {
 temperature_create() {
   # create the chart with 2 dimensions
   cat << EOF
-CHART temperature.cpu '' "CPU Temperature" "Celsius" cpu_temp cpu_temp line $((temperature_priority)) $temperature_update_every '' '' 'temperature'
+CHART temperature.all '' "Temperature" "Celsius" "temperature" "Temperature" line $((temperature_priority)) $temperature_update_every '' '' 'temperature'
 DIMENSION cpu_temp '' absolute 1 1
-CHART temperature.gpu '' "GPU Temperature" "Celsius" gpu_temp gpu_temp line $((temperature_priority + 1)) $temperature_update_every '' '' 'temperature'
 DIMENSION gpu_temp '' absolute 1 1
 EOF
 
@@ -76,10 +77,8 @@ temperature_update() {
 
   # write the result of the work.
   cat << VALUESEOF
-BEGIN temperature.cpu $1
+BEGIN temperature.all $1
 SET cpu_temp = $temperature_cpu_temp
-END
-BEGIN temperature.gpu $1
 SET gpu_temp = $temperature_gpu_temp
 END
 VALUESEOF
