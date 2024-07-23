@@ -5,4 +5,4 @@ Add the .charts.d files in `/usr/libexec/netdata/charts.d/` then enable them in 
 
 The example provided is a collector mitigating the buggyness of `lm-sensors` which returned temperatures of over 100 degrees Celsius. It uses native command `landscape-syinfo` as well as the `nvidia-smi` utility to monitor actual temperatures directly.
 
-![Usage example](exam ple.png)
+![Usage example](example.png)
