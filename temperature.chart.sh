@@ -4,8 +4,6 @@
 
 # temperature
 # real-time temperature monitoring
-# (C) 2024 Your Name <your.email@example.com>
-#
 
 # if this chart is called temperature.chart.sh, then all functions and global variables
 # must start with temperature_
