@@ -1,5 +1,5 @@
-# Netdata-collectors
-Temperature collector for netdata agent
+# Netdata collector scripts
+Example temperature collector for netdata agent
 
 Add the .charts.d files in `/usr/libexec/netdata/charts.d/` then enable them in `/etc/netdata/charts.d.conf` by adding a `chart_name = yes` at the bottom of the file.
 
